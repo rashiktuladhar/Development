@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+system("clear")
+require File.dirname(__FILE__) + '/Operation'
+class User
+  def initialize
+    puts "\n*************************************************************************************************************"
+    puts "Please Type In The Option For Your Desired Calculation \n 1 -> Circle \n 2 -> Square \n 3 -> Rectangle \n 4 -> Triangle \n q -> Quit\n\n"
+    puts "*************************************************************************************************************\n\n"
+    option=gets.chomp
+    doCalc(option)
+    ###Make Object In Constructor
+  end
+
+  def doCalc(option)
+    operationObj=Operation.new(option)
+    operationObj.getOperation
+  end
+
+  def printResult(area)
+    puts "The Area The Shape is #{@area}"
+    confirmationMsg
+  end
+
+  def confirmationMsg
+    puts "\nDo You Wish To Continue Calculating Areas If Yes Please Press Y Else Just Press Any Other Key"
+    againCalc=gets.chomp.upcase
+    if againCalc == "Y"
+      initialize
+    else
+      puts "\nThank You For Using The Area Calculation Program."
+    end
+  end
+
+end
+
+view=User.new
+
+
